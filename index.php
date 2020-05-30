@@ -1,5 +1,39 @@
 <?php
 $message="";
+
+if(isset($_POST['btn'])){
+  if(isset($_POST['login']) and isset($_POST['password'])){
+$login=$_POST['login'];
+$password=$_POST['password'];
+require_once("pdo.php");
+
+
+// On récupère tout le contenu de la table 
+//$reponse contenait toute la réponse de MySQL en vrac, sous forme d'objet.
+$reponse = $bdd->query('SELECT login, password, role FROM utilisateur');
+
+// On affiche chaque entrée une à une
+//$donnees est un array renvoyé par lefetch(). Chaque fois qu'on fait une boucle,
+//fetch va chercher dans $reponse l'entrée suivante et organise les champs dans l'array $donnees.
+//elle récupère une nouvelle entrée et place son contenu dans $donnees ; elle vérifie si $donnees vaut vrai ou faux.
+while ($donnees = $reponse->fetch()){
+        if($login==$donnees['login'] && $password==$donnees['password']){
+            if($donnees['role']=='admin'){
+              header("Location:container.php");//permet de rediriger
+                exit();
+            }else{
+              header("Location:pagejoueur.php");
+          }
+
+        }
+        else{
+            $message='<b style="color:red ">login ou mot de pass incorrect</b>';
+        }
+}
+
+$reponse->closeCursor(); // Termine le traitement de la requête
+}
+}
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -33,18 +67,16 @@ $message="";
   <div class="container h-100">
         
              <div class="row  h-100 justify-content-center align-items-center">
-             <form class="needs-validation  p-3 w-50 bg-light p-5 shadow rounded" novalidate >
+             <form class="needs-validation  p-3 w-50 bg-light p-5 shadow rounded" method="post" novalidate >
              <div class="sms" id="messager"><p><?=$message?></p></div>
              <div class="container p-2 bg-info  text-white col-md-10">
              <h3 style="text-align:center">Register</h3>
-                   <!--<input type="text" class="form-control bg-info w-100 mb-3" id="register" style="text-align:center" placeholder="Register" required>
-                    <div class="valid-feedback">Ok !</div>-->
                
             </div>
                  <div class="form-group mb-4">
                     
                          <label for="login">Login</label>
-                         <input type="text" class="form-control" id="login" placeholder="Entrer votre login" required>
+                         <input type="text" class="form-control" id="login" name="login" placeholder="Entrer votre login" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Champs obligatoire</div>
                     
@@ -52,11 +84,11 @@ $message="";
                 <div class="form-group mb-4">
                     
                          <label for="password">Password</label>
-                         <input type="password" class="form-control" id="password" placeholder="Entrer votre password" required>
+                         <input type="password" class="form-control" name="password" id="password" placeholder="Entrer votre password" required>
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Champs obligatoire</div>
                 </div>
-                 <button class="btn bg-info w-100 mb-3" type="submit" style="color:white">Connexion</button>
+                 <button class="btn bg-info w-100 mb-3" name="btn" type="submit" style="color:white">Connexion</button>
                  <button class="btn bg-info w-100" type="submit" style="color:white">S'inscrire pour jouer</button>
              </form>
              </div>
