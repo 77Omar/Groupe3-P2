@@ -1,23 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-<<<<<<< HEAD
-=======
-
->>>>>>> 5bac0e8... projet2
 form{
     width: 35%;
     position: relative;
     top:10px;
 }
-<<<<<<< HEAD
 .form-group{
     margin-bottom: 5px; 
     padding-bottom: 10; 
-=======
-
+}
 .form-group{
     margin-bottom: 5px; 
     padding-bottom: 10px;
->>>>>>> 5bac0e8... projet2
     position: relative;
     top: 40px;
 
@@ -27,25 +20,20 @@ form{
     color: #777;
     display: block; 
 }
-<<<<<<< HEAD
-=======
 /*
->>>>>>> 5bac0e8... projet2
 .form-group input{
     border: 2px solid #F0F0F0F0;
     border-radius: 30px;
     display: block;
-<<<<<<< HEAD
     width: 100%;
-=======
     width: 50%;
->>>>>>> 5bac0e8... projet2
+
     padding: 13px;
 }
 .form-group input:focus{ 
     outline: 0;
     border-color:#777;
-<<<<<<< HEAD
+
 }
 .connection {
     width: 25%;
@@ -54,7 +42,7 @@ form{
     float: right;
     background-color: #31ADC8;
     margin-top: 15%;
-=======
+
 }*/
 .connection {
     width: 18%;
@@ -63,7 +51,6 @@ form{
     float: left;
     background-color: #31ADC8;
     margin-top: 7%;
->>>>>>> 5bac0e8... projet2
     font-size: 12px;
     font-family: sans-serif;
     color: white;
@@ -72,17 +59,14 @@ form{
     border: 2px solid #31ADC8;
 }
 .fichier{
-<<<<<<< HEAD
     width: 46%;
     height: 31px;
     border-radius: 10px;
     float: left;
-=======
     width: 22%;
     height: 36px;
     border-radius: 10px;
     float: right;
->>>>>>> 5bac0e8... projet2
     background-color: #31ADC8;
     margin-top: 4%;
     font-size: 12px;
@@ -91,7 +75,6 @@ form{
     display: block;
     cursor: pointer;
 }
-<<<<<<< HEAD
 .avatar{
     width: 120px;
     height: 120px;
@@ -105,20 +88,13 @@ form{
     border-radius: 50%;
     
 }
-=======
-
->>>>>>> 5bac0e8... projet2
 label h6{
     color: #31ADC8;  
 }
 label p{
     color: #31ADC8;  
-<<<<<<< HEAD
-}
-=======
 }
 .bloc{
 height: 50em;
 background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;
 }
->>>>>>> 5bac0e8... projet2

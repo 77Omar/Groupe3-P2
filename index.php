@@ -1,60 +1,40 @@
 <?php
-<<<<<<< HEAD
-=======
-
->>>>>>> 5bac0e8... projet2
 $message="";
 
 if(isset($_POST['btn'])){
-  if(isset($_POST['login']) and isset($_POST['password'])){
-<<<<<<< HEAD
-$login=$_POST['login'];
-$password=$_POST['password'];
-=======
-$login=sha1($_POST['login']);
-$password=sha1($_POST['password']);
->>>>>>> 5bac0e8... projet2
-require_once("pdo.php");
-
+if(isset($_POST['login']) and isset($_POST['password'])){
+$login=trim($_POST['login']);
+$password=trim($_POST['password']);
+require_once('pdo.php');
 
 // On récupère tout le contenu de la table 
 //$reponse contenait toute la réponse de MySQL en vrac, sous forme d'objet.
-<<<<<<< HEAD
 $reponse = $bdd->query('SELECT login, password, role FROM utilisateur');
-=======
 $reponse = $bdd->query('SELECT * FROM utilisateur');
->>>>>>> 5bac0e8... projet2
 
 // On affiche chaque entrée une à une
 //$donnees est un array renvoyé par lefetch(). Chaque fois qu'on fait une boucle,
 //fetch va chercher dans $reponse l'entrée suivante et organise les champs dans l'array $donnees.
 //elle récupère une nouvelle entrée et place son contenu dans $donnees ; elle vérifie si $donnees vaut vrai ou faux.
 while ($donnees = $reponse->fetch()){
-        if($login==$donnees['login'] && $password==$donnees['password']){
-            if($donnees['role']=='admin'){
-<<<<<<< HEAD
-              header("Location:container.php");//permet de rediriger
-                exit();
-            }else{
-              header("Location:pagejoueur.php");
-=======
-              $_SESSION['prenom']=$donnees['prenom'];
-              $_SESSION['nom']=$donnees['nom'];
-              $_SESSION['login']=$donnees['login'];
-              $_SESSION['password']=$donnees['password'];
-              $_SESSION['avatar']=$donnees['avatar'];
-              header("Location:admin.php");//permet de rediriger
-                exit();
-            } if($donnees['role']=='player'){
-              header("Location:container.php");
-              exit();
->>>>>>> 5bac0e8... projet2
-          }
+  if($login==$donnees['login'] && $password==$donnees['password']){
+      if($donnees['role']=='admin'){
+        $_SESSION['prenom']=$donnees['prenom'];
+        $_SESSION['nom']=$donnees['nom'];
+        $_SESSION['login']=$donnees['login'];
+        $_SESSION['password']=$donnees['password'];
+        $_SESSION['avatar']=$donnees['avatar'];
+        header("Location:admin.php");//permet de rediriger
+          exit();
+      } if($donnees['role']=='player'){
+        header("Location:container.php");
+        exit();
+    }
 
-        }
-        else{
-            $message='<b style="color:red ">login ou mot de pass incorrect</b>';
-        }
+  }
+  else{
+      $message='<b style="color:red ">login ou mot de pass incorrect</b>';
+  }
 }
 
 $reponse->closeCursor(); // Termine le traitement de la requête
@@ -102,11 +82,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
                  <div class="form-group mb-4">
                     
                          <label for="login">Login</label>
-<<<<<<< HEAD
-                         <input type="text" class="form-control" id="login" name="login" placeholder="Entrer votre login" required>
-=======
                          <input type="text" class="form-control rounded-pill" id="login" name="login" placeholder="Entrer votre login" required>
->>>>>>> 5bac0e8... projet2
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Champs obligatoire</div>
                     
@@ -114,21 +90,13 @@ $reponse->closeCursor(); // Termine le traitement de la requête
                 <div class="form-group mb-4">
                     
                          <label for="password">Password</label>
-<<<<<<< HEAD
-                         <input type="password" class="form-control" name="password" id="password" placeholder="Entrer votre password" required>
-=======
                          <input type="password" class="form-control rounded-pill" name="password" id="password" placeholder="Entrer votre password" required>
->>>>>>> 5bac0e8... projet2
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Champs obligatoire</div>
                 </div>
                  <button class="btn bg-info w-100 mb-3" name="btn" type="submit" style="color:white">Connexion</button>
-<<<<<<< HEAD
-                 <button class="btn bg-info w-100" type="submit" style="color:white">S'inscrire pour jouer</button>
-=======
                  <a href="player.php" class="btn bg-info w-100" type="submit" style="color:white">S'inscrire pour jouer</a>
-                 <!--<button class="btn bg-info w-100" type="submit" style="color:white">S'inscrire pour jouer</button>-->
->>>>>>> 5bac0e8... projet2
+      
              </form>
              </div>
          </div>

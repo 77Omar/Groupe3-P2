@@ -71,7 +71,7 @@
   
    </div>
    <div class="row ">
-    <form class="needs-validation p-4 mb-6 shadow rounded ml-5 w-75" novalidate  enctype="multipart/form-data" style="background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;">
+    <form class="needs-validation p-4 mb-6 shadow rounded ml-5 w-75" novalidate method="post"  enctype="multipart/form-data" style="background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;">
         <label for=""><h6>S'INSCRIRE</h6></label>
         <label for=""><p>Pour tester votre niveau</p></label>
         <img src="images/picture.jpg" class="img-responsive thumbnail-circle float-right" id="img1"  alt="" width="250" height="150">
