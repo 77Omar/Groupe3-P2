@@ -1,3 +1,14 @@
+<<<<<<< HEAD
+=======
+<?php
+if(isset($_POST['btn'])){
+  require_once('pdo.php');
+  require_once('functionrecup.php');
+  validform();
+}
+?>
+
+>>>>>>> 5bac0e8... projet2
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -31,17 +42,29 @@
 
  <div class="container h-100">
         <div class="row  h-100 justify-content-center align-items-center">
+<<<<<<< HEAD
         <form class="needs-validation bg-light p-6 mb-6 shadow rounded" novalidate >
         <label for=""><h6>S'INSCRIRE</h6></label>
         <label for=""><p>Pour tester votre niveau</p></label>
         <div class="avatar">
           <img id="img"  alt="">
+=======
+        <form class="needs-validation bg-light p-6 mb-6 shadow rounded" novalidate enctype="multipart/form-data" method="post">
+        <label for=""><h6>S'INSCRIRE</h6></label>
+        <label for=""><p>Pour tester votre niveau</p></label>
+        <div class="avatar">
+        <img src="images/picture.jpg" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100">
+>>>>>>> 5bac0e8... projet2
         </div>
        
             <div class="form-group w-100 mb-2">
                
                     <label for="prenom">Prenom</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="prenom" placeholder="prenom" required>
+=======
+                    <input type="text" class="form-control w-100 rounded-pill" name="prenom" id="prenom" placeholder="prenom" required>
+>>>>>>> 5bac0e8... projet2
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Champs obligatoire</div>
                
@@ -49,14 +72,22 @@
             <div class="form-group w-100 mb-2">
                
                     <label for="nom">Nom</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="nom" placeholder="nom" required>
+=======
+                    <input type="text" class="form-control w-100 rounded-pill" name="nom" id="nom" placeholder="nom" required>
+>>>>>>> 5bac0e8... projet2
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Champs obligatoire</div>
            </div>
            <div class="form-group w-100 mb-2">
                
                     <label for="login">Login</label>
+<<<<<<< HEAD
                     <input type="text" class="form-control" id="login" placeholder="login" required>
+=======
+                    <input type="text" class="form-control w-100 rounded-pill" name="login" id="login" placeholder="login" required>
+>>>>>>> 5bac0e8... projet2
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Champs obligatoire</div>
                
@@ -64,19 +95,32 @@
             <div class="form-group w-100 mb-2 ">
                
                     <label for="password">Password</label>
+<<<<<<< HEAD
                     <input type="password" class="form-control" id="password" placeholder="password" required>
+=======
+                    <input type="password" class="form-control w-100 rounded-pill" name="password" id="password" placeholder="password" required>
+>>>>>>> 5bac0e8... projet2
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Champs obligatoire</div>
            </div>
            <div class="form-group w-100 mb-2">
                
                     <label for="password">  Confirm-password</label>
+<<<<<<< HEAD
                     <input type="password" class="form-control" id="password" placeholder="confirm-password" required>
                     <div class="valid-feedback">Ok !</div>
                     <div class="invalid-feedback">Champs obligatoire</div>
            </div>
             <p><input type="submit" value="Créer compte" placeholder="Créer compte" class="connection" name="btn"></p><br>
           <input type="file" name="avatare" class="fichier" error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
+=======
+                    <input type="password" class="form-control w-100 rounded-pill" name="confirmpassword" id="password" placeholder="confirm-password" required>
+                    <div class="valid-feedback">Ok !</div>
+                    <div class="invalid-feedback">Champs obligatoire</div>
+           </div>
+            <p><input type="submit" value="Créer compte" placeholder="Créer compte" class="mt-5 float: left;" style="background-color: #31ADC8; border: 2px solid #31ADC8;border-radius: 10px; color: white;" name="btn"></p><br>
+          <input type="file" name="avatare" class=" float: right;" style="background-color: #31ADC8; width:55%;  border: 2px solid #31ADC8; border-radius: 10px; color: white;"  error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
+>>>>>>> 5bac0e8... projet2
           onchange="document.getElementById('img').src=window.URL.createObjectURL(this.files[0])">
         </form>
         </div>

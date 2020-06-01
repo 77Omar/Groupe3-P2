@@ -24,6 +24,10 @@
     
     <div class="container p-4 bg-info  text-white col-md-12" >
     <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre"  style="background-color: #FFFFFF;" width="119" height="80">
+<<<<<<< HEAD
+=======
+    <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
+>>>>>>> 5bac0e8... projet2
       <h1>Le Plaisir De Jouer</h1>
      
   </div>    
