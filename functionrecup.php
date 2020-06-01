@@ -2,9 +2,9 @@
  function validform(){
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
-    $login =sha1($_POST['login']);
-    $password = sha1($_POST['password']);
-    $confirmpassword =sha1($_POST['confirmpassword']);
+    $login =htmlspecialchars($_POST['login']);
+    $password =trim($_POST['password']);
+    $confirmpassword =trim($_POST['confirmpassword']);
     $avatar = $_FILES['avatare']['name'];
 
     $loginlength = strlen($login);
