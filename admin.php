@@ -34,7 +34,7 @@
   <div class="container mt-2 col-md-12" >
   <p class=" bloc bg-light mt-2 p-2 "></p>
   </div>-->
-  <div class="container-fluid bloc mt-2 w-100 col-md-10">
+  <div class="container-fluid bloc mt-2 w-100 col-md-10" id="form-admin">
     
     <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #50BBC1 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;; height:150px;">
 
@@ -45,81 +45,36 @@
                   <div class="w-25">
                     <li class="nav-item mr-5 rounded border border-white">
                     <img src="images/ic-liste.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light" href="#">Liste Questions</a>
+                      <a class="nav-link bg-light" id="questions" href="#">Liste Questions</a>
                     </li>
                     </div>
                     <div class="w-25">
                     <li class="nav-item mr-5 rounded border border-white">
                     <img src="images/ic-ajout-active.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light" href="#">Creer Admin</a>
+                      <a class="nav-link bg-light" id="admin" href="#">Creer Admin</a>
                     </li>
                     </div>
                     <div class="w-25">
                     <li class="nav-item mr-5 rounded border border-white">
                     <img src="images/ic-liste.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light" href="#">Liste Joueur</a>
+                      <a class="nav-link bg-light"id="joueur" href="#">Liste Joueur</a>
                     </li>
                     </div>
                     <div class="w-25">
                     <li class="nav-item mr-5 rounded border border-white">
                     <img src="images/ic-ajout.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light" href="#">Creer Questions</a>
+                      <a class="nav-link bg-light"id="cree" href="#">Creer Questions</a>
                     </li>
                     </div>
                 </ul>
             </nav>
   
    </div>
-   <div class="row ">
-    <form class="needs-validation p-4 mb-6 shadow rounded ml-5 w-75" novalidate method="post"  enctype="multipart/form-data" style="background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;">
-        <label for=""><h6>S'INSCRIRE</h6></label>
-        <label for=""><p>Pour tester votre niveau</p></label>
-        <img src="images/picture.jpg" class="img-responsive thumbnail-circle float-right" id="img1"  alt="" width="250" height="150">
-       
-            <div class="form-group w-100 mb-2">
-               
-                    <label for="prenom">Prenom</label>
-                    <input type="text" class="form-control w-50 rounded-pill" name="prenom" id="prenom" placeholder="prenom" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-               
-            </div>
-            <div class="form-group w-100 mb-2">
-               
-                    <label for="nom">Nom</label>
-                    <input type="text" class="form-control w-50 rounded-pill" name="nom" id="nom" placeholder="nom" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-           </div>
-           <div class="form-group w-100 mb-2">
-               
-                    <label for="login">Login</label>
-                    <input type="text" class="form-control w-50 rounded-pill" name="login" id="login" placeholder="login" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-               
-            </div>
-            <div class="form-group w-100 mb-2 ">
-               
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control w-50 rounded-pill" name="password" id="password" placeholder="password" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-           </div>
-           <div class="form-group w-100 mb-2">
-               
-                    <label for="password">  Confirm-password</label>
-                    <input type="password" class="form-control w-50 rounded-pill" name="confirmpassword" id="password" placeholder="confirm-password" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-           </div>
-            <p><input type="submit" value="Créer compte" placeholder="Créer compte" class="connection" name="btn"></p><br>
-          <input type="file" name="avatare" class="fichier" error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
-          onchange="document.getElementById('img1').src=window.URL.createObjectURL(this.files[0])">
-        </form>
-    
-    </div>
+
   </div>
 
+  <script src="jquery-3.5.1.js"></script>
+   <script src="Functionajax.js"></script>
+  
 </body>
 </html>

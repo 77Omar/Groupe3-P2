@@ -7,6 +7,7 @@ $login=trim($_POST['login']);
 $password=trim($_POST['password']);
 require_once('pdo.php');
 
+
 // On récupère tout le contenu de la table 
 //$reponse contenait toute la réponse de MySQL en vrac, sous forme d'objet.
 $reponse = $bdd->query('SELECT login, password, role FROM utilisateur');
