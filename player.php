@@ -1,4 +1,5 @@
 <?php
+$error="";
 if(isset($_POST['btn'])){
   require_once('pdo.php');
   require_once('functionrecup.php');
@@ -40,6 +41,7 @@ if(isset($_POST['btn'])){
  <div class="container h-100">
         <div class="row  h-100 justify-content-center align-items-center">
         <form class="needs-validation bg-light p-6 mb-6 shadow rounded" novalidate enctype="multipart/form-data" method="post">
+        <div class="sms" id="error"><p><?=$error?></p></div>
         <label for=""><h6>S'INSCRIRE</h6></label>
         <label for=""><p>Pour tester votre niveau</p></label>
         <div class="avatar">
@@ -87,12 +89,15 @@ if(isset($_POST['btn'])){
           <input type="file" name="avatare" class=" float: right;" style="background-color: #31ADC8; width:55%;  border: 2px solid #31ADC8; border-radius: 10px; color: white;"  error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
           onchange="document.getElementById('img').src=window.URL.createObjectURL(this.files[0])">
         </form>
-             <p>
-                 <?php if(isset($error)){echo $error;} ?>
-             </p>
         </div>
     </div>
     
 </body>
 </html>
 <script src="functionvalid.js"></script>
+<script>
+setTimeout(() => {
+  document.getElementById("error").innerHTML='';
+                   
+}, 1000);
+</script>

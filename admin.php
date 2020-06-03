@@ -36,7 +36,7 @@
   </div>-->
   <div class="container-fluid bloc mt-2 w-100 col-md-10" id="form-admin">
     
-    <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #50BBC1 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;; height:150px;">
+    <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #50BBC1 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
 
           <img src="images/picture.jpg" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100">
         
@@ -71,6 +71,7 @@
   
    </div>
 
+   
   </div>
 
   <script src="jquery-3.5.1.js"></script>

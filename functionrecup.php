@@ -30,8 +30,8 @@
                          //J'enregistre l'utilisateur dans la base de données
                          try
                          {
-                                // $bdd = new PDO('mysql:host=mysql-omar.alwaysdata.net;dbname=omar_bd;charset=utf8', 'omar', 'omarfaye1234');
-                                 $bdd = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8', 'root', '');
+                                 $bdd = new PDO('mysql:host=mysql-omar.alwaysdata.net;dbname=omar_bd;charset=utf8', 'omar', 'omarfaye1234');
+                                // $bdd = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8', 'root', '');
                          }
                          catch(Exception $e)
                          {
@@ -48,18 +48,23 @@
                                 //Après enregistrement je le redirige vers la page de connexion
                                 header('Location:index.php');
                      }else{
-                        $error = "Votre photo de profil doit être au format jpg, JPG, jpeg, png, PNG";
+                        //$error = "Votre photo de profil doit être au format jpg, JPG, jpeg, png, PNG";
+                        echo '<span style="color:red" id="error">Votre photo de profil doit être au format jpg, JPG, jpeg, png, PNG</span>';
                     }
                 }else{
-                    $error = "Votre photo de profil ne doit pas dépasser 2Mo";
+                   // $error = "Votre photo de profil ne doit pas dépasser 2Mo";
+                    echo '<span style="color:red" id="error">Votre photo de profil ne doit pas dépasser 2Mo</span>';
                 }
             }
         } 
         else{
-            $error = "Vos mots de passe ne correspondent pas!!";
+            //$error = "Vos mots de passe ne correspondent pas!!";
+            echo '<span style="color:red" id="error">Vos mots de passe ne correspondent pas!!</span>';
         }
     }else{
-        $error = "Votre prénom, nom ou login ne doivent pas dépasser plus de 50 caractères!!";
+        //$error = "Votre prénom, nom ou login ne doivent pas dépasser plus de 50 caractères!!";
+        echo '<span style="color:red" id="error">"Votre prénom, nom ou login ne doivent pas dépasser plus de 50 caractères!!</span>';
+        
     }
 
  }

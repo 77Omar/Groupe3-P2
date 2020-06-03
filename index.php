@@ -1,7 +1,7 @@
 <?php
 $message="";
 
-if(isset($_POST['btn'])){
+//if(isset($_POST['btn'])){
 if(isset($_POST['login']) and isset($_POST['password'])){
 $login=trim($_POST['login']);
 $password=trim($_POST['password']);
@@ -40,7 +40,8 @@ while ($donnees = $reponse->fetch()){
 
 $reponse->closeCursor(); // Termine le traitement de la requête
 }
-}
+
+//}
 ?>
 <!doctype html>
 <html lang="en" class="h-100">

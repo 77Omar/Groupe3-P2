@@ -6,6 +6,9 @@
     <title>Document</title>
     <!doctype html>
     <html lang="en">
+    <style>
+      h1 {text-align: center;}
+      </style>
       <head>
         <title>Title</title>
         <!-- Required meta tags -->
@@ -23,8 +26,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         
-        <table class="table table-bordered">
-  <thead>
+<table class="table table-bordered" style="background-color:#C4C4C4;">
+          <h1>Liste des joueurs par score</h1>
+    <thead class="rounded-pill text-info">
     <tr>
       <th scope="col">Prenom</th>
       <th scope="col">Nom</th>
@@ -32,6 +36,7 @@
     </tr>
   </thead>
   <tbody>
+    <div class="rounded-pill">
     <tr>
       <td>Omar</td>
       <td>Faye</td>
@@ -52,8 +57,10 @@
       <td>Faye</td>
       <td>650pts</td>
     </tr>
+    </div>
   </tbody>
 </table>
+
   
       </body>
     </html>
