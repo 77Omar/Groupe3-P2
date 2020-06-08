@@ -1,47 +1,6 @@
 <?php
 $message="";
-
-//if(isset($_POST['btn'])){
-if(isset($_POST['login']) and isset($_POST['password'])){
-$login=trim($_POST['login']);
-$password=trim($_POST['password']);
-require_once('pdo.php');
-
-
-// On récupère tout le contenu de la table 
-//$reponse contenait toute la réponse de MySQL en vrac, sous forme d'objet.
-$reponse = $bdd->query('SELECT login, password, role FROM utilisateur');
-$reponse = $bdd->query('SELECT * FROM utilisateur');
-
-// On affiche chaque entrée une à une
-//$donnees est un array renvoyé par lefetch(). Chaque fois qu'on fait une boucle,
-//fetch va chercher dans $reponse l'entrée suivante et organise les champs dans l'array $donnees.
-//elle récupère une nouvelle entrée et place son contenu dans $donnees ; elle vérifie si $donnees vaut vrai ou faux.
-while ($donnees = $reponse->fetch()){
-  if($login==$donnees['login'] && $password==$donnees['password']){
-      if($donnees['role']=='admin'){
-        $_SESSION['prenom']=$donnees['prenom'];
-        $_SESSION['nom']=$donnees['nom'];
-        $_SESSION['login']=$donnees['login'];
-        $_SESSION['password']=$donnees['password'];
-        $_SESSION['avatar']=$donnees['avatar'];
-        header("Location:admin.php");//permet de rediriger
-          exit();
-      } if($donnees['role']=='player'){
-        header("Location:container.php");
-        exit();
-    }
-
-  }
-  else{
-      $message='<b style="color:red ">login ou mot de pass incorrect</b>';
-  }
-}
-
-$reponse->closeCursor(); // Termine le traitement de la requête
-}
-
-//}
+$message='<b style="color:red ">login ou mot de pass incorrect</b>';
 ?>
 <!doctype html>
 <html lang="en" class="h-100">
@@ -66,7 +25,6 @@ $reponse->closeCursor(); // Termine le traitement de la requête
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-    
     <div class="container p-4 bg-info  text-white col-md-12" >
     <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre"  style="background-color: #FFFFFF;" width="119" height="80">
       <h1>Le Plaisir De Jouer</h1>
@@ -75,7 +33,7 @@ $reponse->closeCursor(); // Termine le traitement de la requête
   <div class="container h-100">
         
              <div class="row  h-100 justify-content-center align-items-center">
-             <form class="needs-validation  p-3 w-50 bg-light p-5 shadow rounded" method="post" novalidate >
+             <form class="needs-validation  p-3 w-50 bg-light p-5 shadow rounded" id="forms" method="post" novalidate >
              <div class="sms" id="messager"><p><?=$message?></p></div>
              <div class="container p-2 bg-info  text-white col-md-10">
              <h3 style="text-align:center">Register</h3>
@@ -96,13 +54,14 @@ $reponse->closeCursor(); // Termine le traitement de la requête
                          <div class="valid-feedback">Ok !</div>
                          <div class="invalid-feedback">Champs obligatoire</div>
                 </div>
-                 <button class="btn bg-info w-100 mb-3" name="btn" type="submit" style="color:white">Connexion</button>
-                 <a href="player.php" class="btn bg-info w-100" type="submit" style="color:white">S'inscrire pour jouer</a>
+                 <button class="btn bg-info w-100 mb-3" name="btn"  id='submit' type="submit" style="color:white">Connexion</button>
+                 <a href="player.php?role=player" role="player" class="btn bg-info w-100" type="submit" style="color:white">S'inscrire pour jouer</a>
       
              </form>
              </div>
          </div>
-<script src="functionvalid.js"></script>
+         <script src="jquery-3.5.1.js"></script>
+         <script src="Functionajax.js"></script>
 
 </body>
 </html>

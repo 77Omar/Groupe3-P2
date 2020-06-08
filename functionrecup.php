@@ -6,7 +6,6 @@
     $password =trim($_POST['password']);
     $confirmpassword =trim($_POST['confirmpassword']);
     $avatar = $_FILES['avatare']['name'];
-
     $loginlength = strlen($login);
     $prenomlength = strlen($prenom);
     $nomlength = strlen($nom);
@@ -30,8 +29,8 @@
                          //J'enregistre l'utilisateur dans la base de données
                          try
                          {
-                                 $bdd = new PDO('mysql:host=mysql-omar.alwaysdata.net;dbname=omar_bd;charset=utf8', 'omar', 'omarfaye1234');
-                                // $bdd = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8', 'root', '');
+                                // $bdd = new PDO('mysql:host=mysql-omar.alwaysdata.net;dbname=omar_bd;charset=utf8', 'omar', 'omarfaye1234');
+                                $bdd = new PDO('mysql:host=localhost;dbname=quizz;charset=utf8', 'root', '');
                          }
                          catch(Exception $e)
                          {

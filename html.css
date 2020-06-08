@@ -79,7 +79,6 @@ form{
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 2px solid darkturquoise;
     margin:auto;
 }
 .avatar img{
@@ -88,6 +87,9 @@ form{
     border-radius: 50%;
     
 }
+.rounded-circle{
+    border: 2px solid darkturquoise;
+}
 label h6{
     color: #31ADC8;  
 }
@@ -95,6 +97,29 @@ label p{
     color: #31ADC8;  
 }
 .bloc{
-height: 50em;
+height: 60em;
 background: linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;
 }
+
+/* Sticky Footer Classes */
+
+:root {
+  --input-padding-x: 1.5rem;
+  --input-padding-y: .75rem;
+}
+
+body {
+  background:  #C4C4C4;
+  background:linear-gradient(180deg, #C4C4C4 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;
+}
+
+
+.card-signin .card-body {
+  height:45rem;
+  background-color: #C4C4C4;
+  text-align: center;
+  font-size: 25px;
+}
+
+
+

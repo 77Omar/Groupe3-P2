@@ -9,6 +9,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="shortcut icon" href="images/logo-QuizzSA.png">
+    <link rel="stylesheet" href="html.css">
     <style>
       h1 {text-align: center;}
       </style>
@@ -23,12 +24,12 @@
 
     
     <div class="container p-4 bg-info  text-white col-md-12" >
-    <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre"  style="background-color: #FFFFFF;" width="119" height="80">
-    <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
+      <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre"  style="background-color: #FFFFFF;" width="119" height="80">
+      <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
       <h1>Le Plaisir De Jouer</h1>
-     
-  </div>    
+    </div>    
 
-
+  
+  <script src="jquery-3.5.1.js"></script>
 </body>
 </html>

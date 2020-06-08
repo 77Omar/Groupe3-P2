@@ -1,9 +1,8 @@
 <?php
 $error="";
-if(isset($_POST['btn'])){
-  require_once('pdo.php');
-  require_once('functionrecup.php');
-  validform();
+session_start();
+if(isset($_GET['role'])){
+ $_SESSION['role']=true;
 }
 ?>
 
@@ -40,64 +39,55 @@ if(isset($_POST['btn'])){
 
  <div class="container h-100">
         <div class="row  h-100 justify-content-center align-items-center">
-        <form class="needs-validation bg-light p-6 mb-6 shadow rounded" novalidate enctype="multipart/form-data" method="post">
+        <form class="needs-validation bg-light p-6 mb-6 shadow rounded" id="formplay" novalidate enctype="multipart/form-data" method="post">
         <div class="sms" id="error"><p><?=$error?></p></div>
         <label for=""><h6>S'INSCRIRE</h6></label>
         <label for=""><p>Pour tester votre niveau</p></label>
         <div class="avatar">
         <img src="images/picture.jpg" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100">
         </div>
-       
-            <div class="form-group w-100 mb-2">
+    <div class="form-group w-100 mb-2">
                
-                    <label for="prenom">Prenom</label>
-                    <input type="text" class="form-control w-100 rounded-pill" name="prenom" id="prenom" placeholder="prenom" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
+           <label for="prenom">Prenom</label>
+          <input type="text" class="form-control w-100 rounded-pill" name="prenom" id="prenom" placeholder="prenom" required>
+          <div class="valid-feedback">Ok !</div>
+         <div class="invalid-feedback">Champs obligatoire</div>
                
-            </div>
-            <div class="form-group w-100 mb-2">
-               
-                    <label for="nom">Nom</label>
-                    <input type="text" class="form-control w-100 rounded-pill" name="nom" id="nom" placeholder="nom" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-           </div>
-           <div class="form-group w-100 mb-2">
-               
-                    <label for="login">Login</label>
-                    <input type="text" class="form-control w-100 rounded-pill" name="login" id="login" placeholder="login" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-               
-            </div>
-            <div class="form-group w-100 mb-2 ">
-               
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control w-100 rounded-pill" name="password" id="password" placeholder="password" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-           </div>
-           <div class="form-group w-100 mb-2">
-               
-                    <label for="password">  Confirm-password</label>
-                    <input type="password" class="form-control w-100 rounded-pill" name="confirmpassword" id="password" placeholder="confirm-password" required>
-                    <div class="valid-feedback">Ok !</div>
-                    <div class="invalid-feedback">Champs obligatoire</div>
-           </div>
-            <p><input type="submit" value="Créer compte" placeholder="Créer compte" class="mt-5 float: left;" style="background-color: #31ADC8; border: 2px solid #31ADC8;border-radius: 10px; color: white;" name="btn"></p><br>
-          <input type="file" name="avatare" class=" float: right;" style="background-color: #31ADC8; width:55%;  border: 2px solid #31ADC8; border-radius: 10px; color: white;"  error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
-          onchange="document.getElementById('img').src=window.URL.createObjectURL(this.files[0])">
-        </form>
-        </div>
     </div>
-    
+    <div class="form-group w-100 mb-2">
+         <label for="nom">Nom</label>
+         <input type="text" class="form-control w-100 rounded-pill" name="nom" id="nom" placeholder="nom" required>
+         <div class="valid-feedback">Ok !</div>
+         <div class="invalid-feedback">Champs obligatoire</div>
+   </div>
+   <div class="form-group w-100 mb-2">
+        <label for="login">Login</label>
+        <input type="text" class="form-control w-100 rounded-pill" name="login" id="login" placeholder="login" required>
+        <div class="valid-feedback">Ok !</div>
+        <div class="invalid-feedback">Champs obligatoire</div>
+               
+   </div>
+   <div class="form-group w-100 mb-2 ">
+      <label for="password">Password</label>
+      <input type="password" class="form-control w-100 rounded-pill" name="password" id="password" placeholder="password" required>
+       <div class="valid-feedback">Ok !</div>
+      <div class="invalid-feedback">Champs obligatoire</div>
+  </div>
+  <div class="form-group w-100 mb-2">
+      <label for="password">  Confirm-password</label>
+      <input type="password" class="form-control w-100 rounded-pill" name="confirmpassword" id="password2" placeholder="confirm-password" required>
+      <div class="valid-feedback">Ok !</div>
+      <div class="invalid-feedback">Champs obligatoire</div>
+  </div>
+  <p><input type="submit" id="but_upload" value="Créer compte" placeholder="Créer compte" class="mt-5 float: left;" style="background-color: #31ADC8; border: 2px solid #31ADC8;border-radius: 10px; color: white;" name="btn"></p><br>
+  <input type="file" name="file" id="file" class=" float: right;" style="background-color: #31ADC8; width:55%;  border: 2px solid #31ADC8; border-radius: 10px; color: white;"  error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
+   onchange="document.getElementById('img').src=window.URL.createObjectURL(this.files[0])">
+ </form>
+</div>
+</div>
+  <script src="jquery-3.5.1.js"></script>
+  <script src="Functionajax.js"></script>
 </body>
 </html>
-<script src="functionvalid.js"></script>
-<script>
-setTimeout(() => {
-  document.getElementById("error").innerHTML='';
-                   
-}, 1000);
-</script>
+         
+         

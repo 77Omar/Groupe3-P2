@@ -1,3 +1,6 @@
+<?php
+session_start();
+?> <!--v-->
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -24,7 +27,7 @@
 
     
     <div class="container p-4 text-Black col-md-12" style="background-color: #C4C4C4;" >
-    <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre"  style="background-color: #FFFFFF;" width="119" height="80">
+    <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre" style="background-color: #FFFFFF;" width="119" height="80">
     <!--<button type="button" class="btn btn-light float-right">Deconnexion</button>-->
     <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
       <h1>Le Plaisir De Jouer</h1>
@@ -37,38 +40,43 @@
   <div class="container-fluid bloc mt-2 w-100 col-md-10" id="form-admin">
     
     <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #50BBC1 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
-
-          <img src="images/picture.jpg" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100">
-        
-        <nav class="w-75">
+  <?php
+  echo '<img src="images/'.$_SESSION['avatar'].'" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100" >';
+  ?><!--v-->
+        <nav class="w-75" id="nav">
                 <ul class="nav ml-5">
                   <div class="w-25">
-                    <li class="nav-item mr-5 rounded border border-white">
-                    <img src="images/ic-liste.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light" id="questions" href="#">Liste Questions</a>
+                    <li class="nav-item mr-5  rounded border border-white">
+                    <img src="images/ic-liste.png" alt="" class="float-right mt-2 img-responsive">
+                      <a class="nav-link bg-light" id="questions" href="listeques">Liste Questions</a>
                     </li>
                     </div>
                     <div class="w-25">
-                    <li class="nav-item mr-5 rounded border border-white">
+                    <li class="nav-item mr-5 rounded border border-white img-responsive">
                     <img src="images/ic-ajout-active.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light" id="admin" href="#">Creer Admin</a>
+                      <a class="nav-link bg-light" id="admin" href="Creeradmin">Creer Admin</a>
                     </li>
                     </div>
                     <div class="w-25">
                     <li class="nav-item mr-5 rounded border border-white">
-                    <img src="images/ic-liste.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light"id="joueur" href="#">Liste Joueur</a>
+                    <img src="images/ic-liste.png" alt="" class="float-right mt-2 img-responsive">
+                      <a class="nav-link bg-light"id="joueur" href="listeplayer">Liste Joueur</a>
                     </li>
                     </div>
                     <div class="w-25">
                     <li class="nav-item mr-5 rounded border border-white">
-                    <img src="images/ic-ajout.png" alt="" class="float-right mt-2">
-                      <a class="nav-link bg-light"id="cree" href="#">Creer Questions</a>
+                    <img src="images/ic-ajout.png" alt="" class="float-right mt-2 img-responsive">
+                      <a class="nav-link bg-light"id="cree" href="creerquestions">Creer Questions</a>
                     </li>
                     </div>
                 </ul>
             </nav>
   
+  
+   </div>
+   <div class="row" >
+   <div class="col-lg-12" id='navbar'>
+   </div>
    </div>
 
    

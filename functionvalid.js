@@ -20,3 +20,8 @@ setTimeout(() => {
       });
     }, false);
   })();
+
+  setTimeout(() => {
+    document.getElementById("error").innerHTML='';
+                     
+  }, 1000);
