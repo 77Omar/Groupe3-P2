@@ -1,3 +1,6 @@
+<?php
+session_start();
+?> <!--v-->
 <!doctype html>
 <html lang="en" class="h-100">
   <head>
@@ -8,13 +11,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="shortcut icon" href="images/logo-QuizzSA.png">
     <link rel="stylesheet" href="html.css">
+    <link rel="shortcut icon" href="images/logo-QuizzSA.png">
     <style>
       h1 {text-align: center;}
       </style>
   </head>
-  <body style="background-color: grey;" class="h-100">
+  <body style="background-image:url('images/img-bg.png')">
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -23,13 +26,36 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     
-    <div class="container p-4 bg-info  text-white col-md-12" >
-      <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre"  style="background-color: #FFFFFF;" width="119" height="80">
-      <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
+    <div class="container p-4 text-Black col-md-12" style="background-color: #C4C4C4;" >
+    <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre" style="background-color: #FFFFFF;" width="119" height="80">
+    <!--<button type="button" class="btn btn-light float-right">Deconnexion</button>-->
+    <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
       <h1>Le Plaisir De Jouer</h1>
-    </div>    
+  </div>
+  
+  <!--
+  <div class="container mt-2 col-md-12" >
+  <p class=" bloc bg-light mt-2 p-2 "></p>
+  </div>-->
+  <div class="container-fluid bloc mt-2 w-100 col-md-10" id="form-admin">
+    <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
+  <?php
+  echo '<img src="images/'.$_SESSION['avatar'].'" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100" >';
+  ?><!--v-->
+   </div>
+
+   <div class="row" style="height: 800px;">
+     <div class="col-2 #C4C4C4"></div>
+     <div class="col-5 " style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'></div>
+     <div class="col-5 #C4C4C4">
+     <button type="button" class="w-100 p-2" style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'>TOP SCORE</button><br>
+     <button type="button" class="w-100 mt-5 p-2" style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'>MON MEILLEUR SCORE</button>
+     </div>
+   </div>
+  </div>
+  <script src="jquery-3.5.1.js"></script>
+
 
   
-  <script src="jquery-3.5.1.js"></script>
 </body>
 </html>

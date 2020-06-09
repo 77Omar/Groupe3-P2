@@ -44,32 +44,32 @@ if(isset($_GET['role'])){
     <img src="images/picture.jpg" class="img-responsive thumbnail-circle float-right" id="img1" alt="" width="250" height="150">
       <div class="form-group w-100"> 
         <label for="prenom">Prenom</label>
-        <input type="text" class="form-control w-50 rounded-pill" name="prenom" id="prenom" placeholder="prenom" required>
+        <input type="text" class="form-control w-50 rounded-pill field" name="prenom" id="prenom" placeholder="prenom" required>
         <div class="valid-feedback">Ok !</div>
         <div class="invalid-feedback">Champs obligatoire</div>
      </div>
   <div class="form-group w-100">
     <label for="nom">Nom</label>
-    <input type="text" class="form-control w-50 rounded-pill" name="nom" id="nom" placeholder="nom" required>
+    <input type="text" class="form-control w-50 rounded-pill field" name="nom" id="nom" placeholder="nom" required>
     <div class="valid-feedback">Ok !</div>
     <div class="invalid-feedback">Champs obligatoire</div>
   </div>
   <div class="form-group w-100">
                
     <label for="login">Login</label>
-    <input type="text" class="form-control w-50 rounded-pill" name="login" id="login" placeholder="login" required>
+    <input type="text" class="form-control w-50 rounded-pill field" name="login" id="login" placeholder="login" required>
     <div class="valid-feedback">Ok !</div>
     <div class="invalid-feedback">Champs obligatoire</div>
    </div>
   <div class="form-group w-100">
     <label for="password">Password</label>
-    <input type="password" class="form-control w-50 rounded-pill" name="password" id="password" placeholder="password" required>
+    <input type="password" class="form-control w-50 rounded-pill field" name="password" id="password" placeholder="password" required>
     <div class="valid-feedback">Ok !</div>
     <div class="invalid-feedback">Champs obligatoire</div>
   </div>
   <div class="form-group w-100">
     <label for="password">  Confirm-password</label>
-    <input type="password" class="form-control w-50 rounded-pill" name="confirmpassword" id="password2" placeholder="confirm-password" required>
+    <input type="password" class="form-control w-50 rounded-pill field" name="confirmpassword" id="password2" placeholder="confirm-password" required>
     <div class="valid-feedback">Ok !</div>
     <div class="invalid-feedback">Champs obligatoire</div>
   </div>
@@ -79,29 +79,36 @@ if(isset($_GET['role'])){
  </form>
     </div>
   </div>
-
+  <script src="jquery-3.5.1.js"></script>
   <script>  
-/*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
-            *et d'appliquer les styles de validation aux différents éléments de formulaire*/
-(function() {
-    'use strict';
-    window.addEventListener('load', function() {
-      let forms = document.getElementsByClassName('needs-validation');
-      let validation = Array.prototype.filter.call(forms, function(form) {
-        form.addEventListener('submit', function(event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
+//Validation Admin
+var $prenom=$('#prenom'),
+    $nom=$('#nom'),
+    $login=$('#login'),
+    $password=$('#password'),
+    $password2=$('#password2'),
+    $file= $('#file');
+    $(document).ready(function() {
+    $(document).on('click','#ad_upload',function(e){
+      var inputArray=[$prenom,$nom,$login,$password,$password2,$file];
+      inputArray.forEach(elt=>{
+        if(elt.val()===""){
+          elt.css('borderColor', 'red');
+          e.preventDefault();
+        }
+      })
+    })
+    $(document).on('keyup','.field',function(e){
+     $(this).css({
+       borderColor: 'green',
+       color: 'green'
+     });
+    });
+  });
 
   //Admin
   $(document).ready(function(){
- $("#ad_upload").click(function(){
+ $("#formadmin").submit(function(){
        var formAdm= document.getElementById('formadmin')
        var fdd = new FormData(formAdm);
        $.ajax({
@@ -120,8 +127,17 @@ if(isset($_GET['role'])){
    });
    });
 
-</script>
 
-  <script src="jquery-3.5.1.js"></script>
+
+//Valid password
+     $('#password2.form-control').keyup(function(){
+        $('span.error-keyup-confirmpassword').remove();
+        var password = $('#password').val();
+        var confirmpassword = $('#password2').val();
+        if(password!==confirmpassword){
+            $(this).after('<span class="error error-keyup-confirmpassword">Passwords do not match.</span>');
+       }
+       });
+</script>
 </body>
 </html>

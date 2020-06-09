@@ -7,7 +7,7 @@ if(isset($_GET['role'])){
 ?>
 
 <!doctype html>
-<html lang="en" class="h-100">
+<html lang="en">
   <head>
     <title>Title</title>
     <!-- Required meta tags -->
@@ -37,9 +37,9 @@ if(isset($_GET['role'])){
      
   </div>    
 
- <div class="container h-100">
-        <div class="row  h-100 justify-content-center align-items-center">
-        <form class="needs-validation bg-light p-6 mb-6 shadow rounded" id="formplay" novalidate enctype="multipart/form-data" method="post">
+ <div class="container">
+        <div class="row justify-content-center align-items-center">
+        <form class="needs-validation bg-light p-6 mb-5 shadow rounded" id="formplay" novalidate enctype="multipart/form-data" method="post">
         <div class="sms" id="error"><p><?=$error?></p></div>
         <label for=""><h6>S'INSCRIRE</h6></label>
         <label for=""><p>Pour tester votre niveau</p></label>
@@ -49,44 +49,105 @@ if(isset($_GET['role'])){
     <div class="form-group w-100 mb-2">
                
            <label for="prenom">Prenom</label>
-          <input type="text" class="form-control w-100 rounded-pill" name="prenom" id="prenom" placeholder="prenom" required>
+          <input type="text" class="form-control w-100 rounded-pill field" name="prenom" id="prenom" placeholder="prenom" required>
           <div class="valid-feedback">Ok !</div>
          <div class="invalid-feedback">Champs obligatoire</div>
                
     </div>
     <div class="form-group w-100 mb-2">
          <label for="nom">Nom</label>
-         <input type="text" class="form-control w-100 rounded-pill" name="nom" id="nom" placeholder="nom" required>
+         <input type="text" class="form-control w-100 rounded-pill field" name="nom" id="nom" placeholder="nom" required>
          <div class="valid-feedback">Ok !</div>
          <div class="invalid-feedback">Champs obligatoire</div>
    </div>
    <div class="form-group w-100 mb-2">
         <label for="login">Login</label>
-        <input type="text" class="form-control w-100 rounded-pill" name="login" id="login" placeholder="login" required>
+        <input type="text" class="form-control w-100 rounded-pill field" name="login" id="login" placeholder="login" required>
         <div class="valid-feedback">Ok !</div>
         <div class="invalid-feedback">Champs obligatoire</div>
                
    </div>
    <div class="form-group w-100 mb-2 ">
       <label for="password">Password</label>
-      <input type="password" class="form-control w-100 rounded-pill" name="password" id="password" placeholder="password" required>
-       <div class="valid-feedback">Ok !</div>
-      <div class="invalid-feedback">Champs obligatoire</div>
+      <input type="password" class="form-control w-100 rounded-pill field" name="password" id="password" placeholder="password" required>
+       <div class="valid-feedback" id="pass">Ok !</div>
+      <div class="invalid-feedback" id="pass">Champs obligatoire</div>
   </div>
   <div class="form-group w-100 mb-2">
       <label for="password">  Confirm-password</label>
-      <input type="password" class="form-control w-100 rounded-pill" name="confirmpassword" id="password2" placeholder="confirm-password" required>
-      <div class="valid-feedback">Ok !</div>
-      <div class="invalid-feedback">Champs obligatoire</div>
+      <input type="password" class="form-control w-100 rounded-pill field" name="confirmpassword" id="password2" placeholder="confirm-password" required>
+      <div class="valid-feedback"  id="pass">Ok !</div>
+      <div class="invalid-feedback" id="pass">Champs obligatoire</div>
   </div>
   <p><input type="submit" id="but_upload" value="Créer compte" placeholder="Créer compte" class="mt-5 float: left;" style="background-color: #31ADC8; border: 2px solid #31ADC8;border-radius: 10px; color: white;" name="btn"></p><br>
-  <input type="file" name="file" id="file" class=" float: right;" style="background-color: #31ADC8; width:55%;  border: 2px solid #31ADC8; border-radius: 10px; color: white;"  error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
+  <input type="file" name="file" id="file" class="float-right" style="background-color: #31ADC8; width:55%;  border: 2px solid #31ADC8; top:1px; border-radius: 10px; color: white;"  error="error-6" accept=".jpg, .JPG, .jpeg, .png, .PNG"
    onchange="document.getElementById('img').src=window.URL.createObjectURL(this.files[0])">
  </form>
 </div>
 </div>
-  <script src="jquery-3.5.1.js"></script>
-  <script src="Functionajax.js"></script>
+<script src="jquery-3.5.1.js"></script>
+
+<script>
+
+var $prenom=$('#prenom'),
+    $nom=$('#nom'),
+    $login=$('#login'),
+    $password=$('#password'),
+    $password2=$('#password2'),
+    $file= $('#file');
+    $(document).ready(function() {
+    $(document).on('click','#but_upload',function(e){
+      var inputArray=[$prenom,$nom,$login,$password,$password2,$file];
+      inputArray.forEach(el=>{
+        if(el.val()===""){
+          el.css('borderColor', 'red');
+          e.preventDefault();
+        }
+      })
+    })
+    $(document).on('keyup','.field',function(e){
+     $(this).css({
+       borderColor: 'green',
+       color: 'green'
+     });
+    });
+  });
+ 
+ /*
+  if($password.val()!=$password2.val()){
+    $('#pass').html('Vos mots de pass ne correspond pas!').css({color:'red', display:'block'});
+   e.preventDefault();
+  }else{
+    $(document).on('keyup','#password2',function(){
+      $('#pass').css("display","none");
+    });
+  }
+  */
+
+ /* $('#password.form-control').keyup(function(){
+    $('span.error-keyup-password').remove();
+    var inputVal = $(this).val();
+    var len = data.length;
+    var passwordReg = /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[\W_]).{3,}$/;
+       if(!passwordReg.test(inputVal)){
+           $(this).after('<span class="error error-keyup-password">Password must content at least 1 number, 1 letter and 1 special character.</span>');
+       }else{
+           $('span.error-keyup-password').hide();
+}});*/
+
+//Valid password
+$('#password2.form-control').keyup(function(){
+    $('span.error-keyup-confirmpassword').remove();
+        var password = $('#password').val();
+        var confirmpassword = $('#password2').val();
+        if(password!==confirmpassword){
+            $(this).after('<span class="error error-keyup-confirmpassword">Passwords do not match.</span>');
+       }
+       });
+</script>
+
+<script src="Functionajax.js"></script>
+ 
 </body>
 </html>
          

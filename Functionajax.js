@@ -66,7 +66,7 @@ $(document).ready(function(){
 
 //player
 $(document).ready(function(){
- $("#but_upload").click(function(){
+ $("#formplay").submit(function(){
   var formplayer= document.getElementById('formplay')
        var fd = new FormData(formplayer);
        $.ajax({
@@ -89,7 +89,7 @@ $(document).ready(function(){
  
  /*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
              *et d'appliquer les styles de validation aux différents éléments de formulaire*/
- (function() {
+ /*(function() {
      'use strict';
      window.addEventListener('load', function() {
        let forms = document.getElementsByClassName('needs-validation');
@@ -103,7 +103,7 @@ $(document).ready(function(){
          }, false);
        });
      }, false);
-   })();
+   })();*/
 
    setTimeout(() => {
       document.getElementById("error").innerHTML='';

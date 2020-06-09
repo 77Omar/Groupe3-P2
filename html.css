@@ -120,6 +120,10 @@ body {
   text-align: center;
   font-size: 25px;
 }
+.blok{
+    height: 60em;
+    background: linear-gradient(180deg, #C4C4C4C4 0%, rgba(255, 255, 255, 0) 100%), #C4C4C4;
+    }
 
 
 
