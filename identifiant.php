@@ -8,6 +8,8 @@ $sql=$bdd->query("SELECT * FROM utilisateur WHERE login = '".$_POST['login']."'
  if( $row == 1){
     $data=$sql->fetch();
     $_SESSION['avatar']= $data['avatar']; //
+    $_SESSION['prenom']= $data['prenom'];
+    $_SESSION['nom']= $data['nom'];
     if($data['role']==='admin'){
         echo "admin";
        }elseif ($data['role']==='player'){

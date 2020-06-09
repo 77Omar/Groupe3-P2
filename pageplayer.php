@@ -42,6 +42,8 @@ session_start();
   <?php
   echo '<img src="images/'.$_SESSION['avatar'].'" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100" >';
   ?><!--v-->
+   <p><?=$_SESSION['prenom']?><br>
+   <?=$_SESSION['nom']?></p>
    </div>
 
    <div class="row" style="height: 800px;">
@@ -55,7 +57,5 @@ session_start();
   </div>
   <script src="jquery-3.5.1.js"></script>
 
-
-  
 </body>
 </html>

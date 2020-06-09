@@ -22,36 +22,51 @@
   <table class="table table-bordered" style="background-color:#C4C4C4;">
           <h1>Liste des joueurs par score</h1>
     <thead class="rounded-pill text-info">
-    <tr>
+    <tr class="text-center">
       <th scope="col">Prenom</th>
       <th scope="col">Nom</th>
       <th scope="col">Score</th>
     </tr>
   </thead>
-  <tbody>
-    <div class="rounded-pill">
-    <tr>
-      <td>Omar</td>
-      <td>Faye</td>
-      <td>1000pts</td>
-    </tr>
-    <tr>
-      <td>Khalifa</td>
-      <td>Samb</td>
-      <td>800pts</td>
-    </tr>
-    <tr>
-      <td>Babacar</td>
-      <td>Faye</td>
-      <td>700pts</td>
-    </tr>
-    <tr>
-      <td>Fatou</td>
-      <td>Faye</td>
-      <td>650pts</td>
-    </tr>
-    </div>
+  <tbody id="tbody">
+    
   </tbody>
 </table>
+<script src="jquery-3.5.1.js"></script>
+<script>
+$(document).ready(function(){
+  //let offset=0;
+  const tbody=$('#tbody');
+  $.ajax({
+    type:'POST',
+    url: "traitementplay.php",
+    data:{
+    //limit:'',offset:offset
+  },
+    dataType:"JSON",
+    success: function(data){
+      tbody.html('')
+      printData(data,tbody);
+     // offset+=5
+    },
+  });
+  //srcoll
+
+  //function
+  function printData(data,tbody){
+    $.each(data, function(indice,player){
+      tbody.append(`
+    <tr class="text-center">
+      <td>${player.prenom}</td>
+      <td>${player.nom}</td>
+      <td>${player.score}</td>
+    </tr>
+      `);
+    });
+  }
+ 
+});
+
+</script>
   </body>
 </html>

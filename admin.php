@@ -42,7 +42,9 @@ session_start();
     <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
   <?php
   echo '<img src="images/'.$_SESSION['avatar'].'" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100" >';
-  ?><!--v-->
+  ?>
+   <p><?=$_SESSION['prenom']?><br>
+   <?=$_SESSION['nom']?></p>
   <nav class="w-75" id="nav">
     <ul class="nav ml-5">
       <div class="w-25">
