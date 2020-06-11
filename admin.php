@@ -26,7 +26,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     
-    <div class="container p-4 text-Black col-md-12" style="background-color: #C4C4C4;" >
+    <div class="container p-4 text-Black col-md-12 col-sm-12" style="background-color: #C4C4C4;" >
     <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre" style="background-color: #FFFFFF;" width="119" height="80">
     <!--<button type="button" class="btn btn-light float-right">Deconnexion</button>-->
     <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
@@ -37,7 +37,7 @@ session_start();
   <div class="container mt-2 col-md-12" >
   <p class=" bloc bg-light mt-2 p-2 "></p>
   </div>-->
-  <div class="container-fluid bloc mt-2 w-100 col-md-10" id="form-admin">
+  <div class="container-fluid bloc mt-2 w-100 col-md-10 col-sm-10" id="form-admin">
     
     <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
   <?php
@@ -47,25 +47,25 @@ session_start();
    <?=$_SESSION['nom']?></p>
   <nav class="w-75" id="nav">
     <ul class="nav ml-5">
-      <div class="w-25">
+      <div class="w-50 p-2">
         <li class="nav-item mr-5  rounded border border-white">
         <img src="images/ic-liste.png" alt="" class="float-right mt-2 img-responsive">
         <a class="nav-link bg-light" id="questions" href="listeques">Liste Questions</a>
         </li>
       </div>
-      <div class="w-25">
+      <div class="w-50 p-2">
         <li class="nav-item mr-5 rounded border border-white img-responsive">
         <img src="images/ic-ajout-active.png" alt="" class="float-right mt-2">
         <a class="nav-link bg-light" id="admin" href="Creeradmin">Creer Admin</a>
         </li>
       </div>
-      <div class="w-25">
+      <div class="w-50 p-2">
         <li class="nav-item mr-5 rounded border border-white">
         <img src="images/ic-liste.png" alt="" class="float-right mt-2 img-responsive">
         <a class="nav-link bg-light"id="joueur" href="listeplayer">Liste Joueur</a>
         </li>
       </div>
-        <div class="w-25">
+        <div class="w-50 P-2">
           <li class="nav-item mr-5 rounded border border-white">
           <img src="images/ic-ajout.png" alt="" class="float-right mt-2 img-responsive">
           <a class="nav-link bg-light"id="cree" href="creerquestions">Creer Questions</a>

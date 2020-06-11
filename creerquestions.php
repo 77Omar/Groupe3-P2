@@ -19,13 +19,29 @@
   
       
   <div class="container">
-      <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="col-lg-10 col-xl-10 mx-auto">
         <div class="card card-signin flex-row my-5">
           <div class="card-body">
-           <input type="text" class="form-control rounded-pill" placeholder="Parametrer Votre Questions" required>
-            <form class="form-signin">
-          
-            </form>
+           <input type="text" class="form-control rounded-pill col-lg-4 float-left" placeholder="Parametrer Votre Questions" required>
+           <button type="button" class="btn btn-light rounded-pill col-lg-4 float-right">Deconnexion</button>
+          <form class="form-signin">
+          <div class="form-group">
+            <label for="exampleFormControlTextarea2">Questions</label>
+            <textarea class="form-control rounded-pill" id="exampleFormControlTextarea2" rows="3"></textarea><br>
+            <label for="exampleFormControlTextarea2">Nbre de points</label>
+            <input type="number" class="col-md-7 rounded-pill" name="nbre_question" errore="errore-1" value="<?=$nbr?>"><br><br>
+            <label for="sel1">Type de Reponse</label>
+            <select class="form-control rounded-pill" id="sel1">
+            <option>Donnez le type de reponse</option>
+            <option>Texte</option>
+            <option>Simple</option>
+            <option>Multiple</option>
+             </select><br>
+             <div class="row float-right col-lg-6">
+             <button type="button" class="btn btn-light rounded-pill">Enregistrer</button>
+             </div>
+            </div>
+         </form>
         </div>
       </div>
     </div>
