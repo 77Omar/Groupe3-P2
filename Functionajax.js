@@ -6,7 +6,7 @@ setTimeout(() => {
 
 $(document).ready(function(){
    //initial
- $('#navbar').load('Creeradmin.php');
+ $('#navbar').load('creerquestions.php');
  //handle page click
  $('li a').click(function(){
     let page = $(this).attr('href');
@@ -86,7 +86,6 @@ $(document).ready(function(){
    });
 
 
- 
  /*La fonction principale de ce script est d'empêcher l'envoi du formulaire si un champ a été mal rempli
              *et d'appliquer les styles de validation aux différents éléments de formulaire*/
  /*(function() {

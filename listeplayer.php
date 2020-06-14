@@ -32,10 +32,42 @@
     </tr>
   </thead>
   <tbody id="tbody">
+  <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+       <div  class="form-group">
+       <input type="hidden" id="num" class="form-control">
+       </div>
+       <div  class="form-group">
+       <label for="Num">Prenom</label>
+       <input type="text" id="prenom" class="form-control">
+       </div>
+       <div  class="form-group">
+       <label for="Num">Nom</label>
+       <input type="text" id="nom" class="form-control">
+       </div>
+      </div>
+      <div class="modal-footer">
+         <a href="#" id="save" class="btn btn-primary pull-right">Update</a>
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
   </tbody>
 </table>
 </div>
+
 <script src="jquery-3.5.1.js"></script>
 <script>
 $(document).ready(function(){
@@ -82,14 +114,14 @@ $(document).ready(function(){
   function printData(data,tbody){
     $.each(data, function(indice,player){
       tbody.append(`
-    <tr class="text-center">
-      <td scope="row">${player.Num}</td>
-      <td>${player.prenom}</td>
-      <td>${player.nom}</td>
-      <td>${player.score}</td>
-      <td><button type="button" class="btn btn-info">modifier</button></td>
-      <td><button type="button" class="btn btn-danger" id="delete">supprimer</button></td>
-    </tr>
+      <tr class="text-center">
+        <td scope="row">${player.Num}</td>
+        <td>${player.prenom}</td>
+        <td>${player.nom}</td>
+        <td>${player.score}</td>
+        <td><button type="button" id="modif" class="btn btn-info"  data-toggle="modal" data-target="#myModal">modifier</button></td>
+        <td><button type="button" class="btn btn-danger" id="delete">supprimer</button></td>
+      </tr>
       `);
     });
   }
@@ -102,7 +134,7 @@ $(document).ready(function(){
         $.ajax({
     type:'POST',
     url: "Delete.php",
-    data:{numnum},
+    data:{num:num},
     dataType:"html",
     success: function(data){
       printData(data,tbody);
@@ -110,7 +142,37 @@ $(document).ready(function(){
     });
 
    });
-   //
+
+   //Modifier
+   $(document).on('click','#modif',function(){
+     let num=$(this).parents('tr').find('td').eq(0).html();
+     let prenom=$(this).parents('tr').find('td').eq(1).html();
+     let nom=$(this).parents('tr').find('td').eq(2).html();
+     $('#num').attr('value',num);
+     $('#prenom').attr('value',prenom);
+     $('#nom').attr('value',nom);
+    });
+   $(document).on('click','#save',function(){
+    let prenom=$('#prenom').val(),
+    nom=$('#nom').val(),
+    Num= $('#num').val();
+        
+        $.ajax({
+        type:'POST',
+        url: "Modifier.php",
+       data:{Num:Num,
+        prenom:prenom,
+        nom:nom
+       },
+       dataType:"html",
+       success: function(data){
+       printData(data,tbody);
+     },
+    });
+
+   });
+
+
    
 });
 

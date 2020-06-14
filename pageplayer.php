@@ -26,7 +26,7 @@ session_start();
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     
-    <div class="container p-4 text-Black col-md-12" style="background-color: #C4C4C4;" >
+    <div class="container text-Black col-md-12" style="background-color: #C4C4C4;" >
     <img src="images/logo-QuizzSA.png" class="img-responsive float-left" alt="Cinque Terre" style="background-color: #FFFFFF;" width="119" height="80">
     <!--<button type="button" class="btn btn-light float-right">Deconnexion</button>-->
     <a href="Deconnexion.php" class="btn btn-light float-right">Deconnexion</a>
@@ -50,12 +50,66 @@ session_start();
      <div class="col-2 #C4C4C4"></div>
      <div class="col-5 " style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'></div>
      <div class="col-5 #C4C4C4">
+     <div class="h-50">
      <button type="button" class="w-100 p-2" style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'>TOP SCORE</button><br>
-     <button type="button" class="w-100 mt-5 p-2" style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'>MON MEILLEUR SCORE</button>
+     <table class="table table-bordered" style="background-color:#C4C4C4;">
+    <thead class="rounded-pill text-info">
+    <tr class="text-center">
+      <th scope="col">N°</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+    <tbody id="tbody">
+
+    </tbody>
+  </table>
+     </div>
+     <div class="">
+     <button type="button" class="w-100 p-2" style='background: linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4;'>MON MEILLEUR SCORE</button>
+     </div>
      </div>
    </div>
   </div>
+</div>
+
+
   <script src="jquery-3.5.1.js"></script>
+  <script>
+$(document).ready(function(){
+  let offset=0;
+  const tbody=$('#tbody');
+$.ajax({
+ type:'POST',
+ url: "playtraitement.php",
+ data:{
+ limit:5,offset:offset
+},
+ dataType:"JSON",
+ success: function(data){
+   tbody.html('')
+   printData(data,tbody);
+     offset+=5
+ },
+});
+
+
+  //function
+  function printData(data,tbody){
+    $.each(data, function(indice,player){
+      tbody.append(`
+      <tr class="text-center">
+        <td scope="row">${player.Num}</td>
+        <td>${player.prenom}</td>
+        <td>${player.nom}</td>
+        <td>${player.score}</td>
+      </tr>
+      `);
+    });
+  }
+});
+</script>
 
 </body>
 </html>

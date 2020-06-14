@@ -38,44 +38,45 @@ session_start();
   <p class=" bloc bg-light mt-2 p-2 "></p>
   </div>-->
   <div class="container-fluid bloc mt-2 w-100 col-md-10 col-sm-10" id="form-admin">
-    
-    <div class="row justify-content-start align-items-center" style="background:linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
+    <div class="row justify-content-start align-items-center mb-3"  style="background:linear-gradient(180deg, #C4C4C4 11.84%, rgba(255, 255, 255, 0) 100%), #C4C4C4; height:150px;">
+    <div class="col-3">
   <?php
   echo '<img src="images/'.$_SESSION['avatar'].'" class="img-responsive rounded-circle" id="img"  alt=""  width="100" height="100" >';
   ?>
    <p><?=$_SESSION['prenom']?><br>
    <?=$_SESSION['nom']?></p>
-  <nav class="w-75" id="nav">
-    <ul class="nav ml-5">
+    </div>
+      <div class="col-8 ml-3">
+  <nav class="w-100" id="nav">
+    <ul class="nav">
       <div class="w-50 p-2">
-        <li class="nav-item mr-5  rounded border border-white">
+        <li class="nav-item   rounded border border-white">
         <img src="images/ic-liste.png" alt="" class="float-right mt-2 img-responsive">
         <a class="nav-link bg-light" id="questions" href="listeques">Liste Questions</a>
         </li>
       </div>
       <div class="w-50 p-2">
-        <li class="nav-item mr-5 rounded border border-white img-responsive">
+        <li class="nav-item rounded border border-white img-responsive">
         <img src="images/ic-ajout-active.png" alt="" class="float-right mt-2">
         <a class="nav-link bg-light" id="admin" href="Creeradmin">Creer Admin</a>
         </li>
       </div>
       <div class="w-50 p-2">
-        <li class="nav-item mr-5 rounded border border-white">
+        <li class="nav-item  rounded border border-white">
         <img src="images/ic-liste.png" alt="" class="float-right mt-2 img-responsive">
         <a class="nav-link bg-light"id="joueur" href="listeplayer">Liste Joueur</a>
         </li>
       </div>
         <div class="w-50 P-2">
-          <li class="nav-item mr-5 rounded border border-white">
+          <li class="nav-item rounded border border-white">
           <img src="images/ic-ajout.png" alt="" class="float-right mt-2 img-responsive">
           <a class="nav-link bg-light"id="cree" href="creerquestions">Creer Questions</a>
           </li>
          </div>
       </ul>
   </nav>
-  
-  
-   </div>
+      </div>
+    </div>
      <div class="row" >
      <div class="col-lg-12" id='navbar'>
      </div>

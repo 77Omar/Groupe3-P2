@@ -21,30 +21,90 @@
   <div class="container">
       <div class="col-lg-10 col-xl-10 mx-auto">
         <div class="card card-signin flex-row my-5">
-          <div class="card-body">
+          <div class="card-body p-5">
            <input type="text" class="form-control rounded-pill col-lg-4 float-left" placeholder="Parametrer Votre Questions" required>
-           <button type="button" class="btn btn-light rounded-pill col-lg-4 float-right">Deconnexion</button>
-          <form class="form-signin">
-          <div class="form-group">
-            <label for="exampleFormControlTextarea2">Questions</label>
-            <textarea class="form-control rounded-pill" id="exampleFormControlTextarea2" rows="3"></textarea><br>
+           <button type="button" class="btn btn-light rounded-pill col-lg-4 float-right" id="question" name="envoie" >Enregistrer</button>
+          <form class="form-signin" method="post" id="creequestion">
+          <div class="form-group" id="inputs">
+            <div class="type"><label for="exampleFormControlTextarea2">Questions</label>
+            <textarea class="form-control rounded-pill form" name="question" id="typrea" rows="3"></textarea><br>
+            </div>
+           <div class="type">
             <label for="exampleFormControlTextarea2">Nbre de points</label>
-            <input type="number" class="col-md-7 rounded-pill" name="nbre_question" errore="errore-1" value="<?=$nbr?>"><br><br>
+            <input type="number" id="num" class="col-md-7 rounded-pill form" name="points" value=""><br><br>
+           </div>
+            <div class="selec">
             <label for="sel1">Type de Reponse</label>
-            <select class="form-control rounded-pill" id="sel1">
-            <option>Donnez le type de reponse</option>
-            <option>Texte</option>
-            <option>Simple</option>
-            <option>Multiple</option>
+            <div class="row">
+            <div class="row float-right col-lg-3">
+            <button type="button" class="" onclick="onAddInput()"><img src="" href="" alt="">+</button>
+            </div>
+            <select class="form-control rounded-pill col-lg-9 form" id="select" name="type_reponse" onchange="texte()">
+            <option value="">Donnez le type de reponse</option>
+            <option value="Texte">Texte</option>
+            <option value="choix_simple">Simple</option>
+            <option value="choix_multiple">Multiple</option>
              </select><br>
-             <div class="row float-right col-lg-6">
-             <button type="button" class="btn btn-light rounded-pill">Enregistrer</button>
              </div>
+            
+             <input type="hidden" name="numb_input" id="valeur">
+             </div>
+            </div>
             </div>
          </form>
         </div>
       </div>
     </div>
   </div>
+  <script src="jquery-3.5.1.js"></script>
+  <script src="creationquestion.js"></script>
+  <script>
+    var  $typrea=$('#typrea'),
+         $num=$('#num'),
+         $select=$('#select');
+     $(document).ready(function() {
+      $(document).on('click','#question',function(e){
+      var inputArray=[$typrea,$num,$select];
+      inputArray.forEach(elt=>{
+        if(elt.val()===""){
+          elt.css('borderColor', 'red');
+          e.preventDefault();
+        }
+      })
+    });
+    $(document).on('keyup','.form',function(e){
+     $(this).css({
+       borderColor: 'green',
+       color: 'green'
+     });
+    });
+    });
+
+
+    //Question
+$(document).ready(function(){
+    let nbrRow=0;
+  $(document).on('click','#question',function(){
+    nbrRow++;
+   let sr=($('#creequestion').serialize());
+   
+        $.ajax({
+            url: 'BDQuestion.php',
+            type: 'post',
+            data:sr,
+            dataType:"html",
+            success: function (data, statut) {
+             if(data ==="ok"){
+                 alert(data);
+             }else{
+               alert("no");
+             }
+         }
+        });
+    });
+    });
+
+  </script>
   </body>
 </html>
+
