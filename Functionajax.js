@@ -6,7 +6,7 @@ setTimeout(() => {
 
 $(document).ready(function(){
    //initial
- $('#navbar').load('creerquestions.php');
+ $('#navbar').load('listeplayer.php');
  //handle page click
  $('li a').click(function(){
     let page = $(this).attr('href');
